@@ -9,14 +9,16 @@ import web.model.Car;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 @Controller
 public class CarController {
 
     @GetMapping("/cars")
-    public String getTableCars(@RequestParam("locale")String s, ModelMap model){
+    public String getTableCars(Locale locale, ModelMap model){
 
         List<Car> cars = new ArrayList<> ();
+        String s = locale.getLanguage ();
 
         if (s.equals("ru")) {
             model.addAttribute("header_cars", "МАШИНЫ");
