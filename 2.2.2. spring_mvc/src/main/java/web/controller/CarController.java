@@ -39,23 +39,12 @@ public class CarController {
 
     @GetMapping("/cars")
     public String getTableCars(Locale locale, ModelMap model, @RequestParam(name ="count",required=false) Integer count){
-        ResourceBundle resourceBundle = ResourceBundle.getBundle ("src/main/resources/headers",locale);
-
-       // String s = locale.getLanguage ();
-
-
-            model.addAttribute("header_cars", resourceBundle.getString ("header_cars"));
-            model.addAttribute("head_table1",resourceBundle.getString ("head_table1"));
-            model.addAttribute("head_table2", resourceBundle.getString ("head_table2"));
-            model.addAttribute("head_table3", resourceBundle.getString ("head_table3"));
-
-
-
-
-        //подсписок текущей страницы
-
+    //    ResourceBundle resourceBundle = ResourceBundle.getBundle ("src/main/resources/headers",locale);
+        model.addAttribute("header_cars", "CARS");
+        model.addAttribute("head_table1","Mark");
+        model.addAttribute("head_table2", "Series");
+        model.addAttribute("head_table3", "Color");
         model.addAttribute ("list_cars",getPageListHolder (getListCars (),count).getPageList ());
-
         return "cars";
     }
 
